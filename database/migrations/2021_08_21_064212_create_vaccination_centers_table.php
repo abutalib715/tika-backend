@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeopleTable extends Migration
+class CreateVaccinationCentersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePeopleTable extends Migration
      */
     public function up()
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('vaccination_centers', function (Blueprint $table) {
             $table->id();
-            $table->date('dob');
-            $table->string('office');
-            $table->unsignedTinyInteger('registered');
+            $table->string('name');
+            $table->unsignedSmallInteger('upozila_id');
+            $table->unsignedSmallInteger('vaccine_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePeopleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('vaccination_centers');
     }
 }
